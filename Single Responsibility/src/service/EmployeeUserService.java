@@ -1,11 +1,12 @@
 package service;
+
 import entity.User;
 
-public class UserService {
-    
+public class EmployeeUserService {
+
     User user;
 
-    public UserService(User user){
+    public EmployeeUserService(User user){
         this.user = user;
     }
 
