@@ -1,6 +1,5 @@
 package manager;
 
-import entity.PaymentInstrument;
 import exceptions.PaymentInstrumentInvalidException;
 
 public class CreditCard extends BaseBankCard {
