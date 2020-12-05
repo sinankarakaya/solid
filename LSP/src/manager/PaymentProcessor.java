@@ -1,22 +1,21 @@
 package manager;
 
+import entity.IPaymentInstrument;
 import entity.OrderDetails;
-import entity.PaymentInstrument;
+import entity.PaymentResponse;
 
-class PaymentProcessor {
-    void process(OrderDetails orderDetails, PaymentInstrument paymentInstrument) {
+public class PaymentProcessor {
+    public void process(OrderDetails orderDetails, IPaymentInstrument paymentInstrument) {
       try {
         paymentInstrument.validate();
-        paymentInstrument.runFraudChecks();
-        paymentInstrument.sendToPaymentGateway();
-        saveToDatabase(orderDetails, paymentInstrument);
-      } catch (Exception e){
-          // exception handling
+        PaymentResponse response = paymentInstrument.collectPayment();
+        saveToDatabase(orderDetails, response.getIdentifier());
+      } catch (Exception e) {
+        // exception handling
       }
     }
   
-    void saveToDatabase( OrderDetails orderDetails, PaymentInstrument paymentInstrument) {
-      String fingerprint = paymentInstrument.getFingerprint();
-      // save fingerprint and order details in DB
+    void saveToDatabase(OrderDetails orderDetails, String identifier) {
+      // save the identifier and order details in DB
     }
   }

@@ -2,6 +2,6 @@ package manager;
 
 import entity.PaymentInstrument;
 
-class DebitCard extends PaymentInstrument {
-    // debit card-specific code
-  }
+public class DebitCard extends BaseBankCard {
+  // constructor omitted
+}

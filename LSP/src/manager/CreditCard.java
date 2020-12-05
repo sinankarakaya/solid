@@ -3,11 +3,12 @@ package manager;
 import entity.PaymentInstrument;
 import exceptions.PaymentInstrumentInvalidException;
 
-public class CreditCard extends PaymentInstrument{
-
+public class CreditCard extends BaseBankCard {
+    // constructor omitted
+    
     @Override
     public void validate() throws PaymentInstrumentInvalidException {
-        super.validate();
+        basicValidator.validate();
         // additional validations for credit cards
     }
-}
+  }
